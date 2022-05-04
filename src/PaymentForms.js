@@ -29,11 +29,11 @@ const PaymentForms = () => {
     }
 
     const processPayment = () => {
-        console.log("number => ", state.number)
-        console.log("name => ", state.name)
-        console.log("expiry => ", state.expiry)
-        console.log("cvc => ", state.cvc)
-        console.log(JSON.stringify(state))
+        console.log("number => ", state.number);
+        console.log("name => ", state.name);
+        console.log("expiry => ", state.expiry);
+        console.log("cvc => ", state.cvc);
+        console.log(JSON.stringify(state));
 
         swal("Enviar", "¿Desea continuar con el pago de su servicio?",{
             icon: "warning",
@@ -48,11 +48,15 @@ const PaymentForms = () => {
             switch(value){
       
               case "confirmar":
-                swal("Se ha confirmado el pago", "Pago efectuado", {button: "Aceptar", icon: "success"});
+                swal("Se ha confirmado el pago", "Pago efectuado", {button: "Aceptar", icon: "success"}).then((result) => {
+                    window.location.reload();
+                  });
                 break;
       
                 default:
-                  swal("Se ha cancelado el pago", "Pago cancelado", {button: "Aceptar", icon: "error"})
+                  swal("Se ha cancelado el pago", "Pago cancelado", {button: "Aceptar", icon: "error"}).then((result) => {
+                    window.location.reload();
+                  });
             }
           });
     }
@@ -67,7 +71,7 @@ const PaymentForms = () => {
                     cvc = {state.cvc}
                     focused = {state.focused}
                     />
-                <form>
+                <form id='form'>
                     <div className='form-group'>
                         <label htmlFor = 'number'>Número de la tarjeta</label>
                         <input type = "text" name = "number" id = "number" className = 'form-control' onChange={handleInpuntChange} onFocus={handleFocusedChange} maxLength = "16" placeholder='**** **** **** ****' />

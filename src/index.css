@@ -15,7 +15,7 @@ html{
   background-repeat: no-repeat;
   background-color: rgb(15, 15, 15);
   background-blend-mode: soft-light;
-  height: 648px;
+  height: 100%;
   width: 100%;
 }
 
@@ -79,4 +79,25 @@ html{
   font-size: 12px;
   border: 1px solid #000000;
   color: #000000;
+}
+
+/*Responsive*/
+@media screen and (max-width:500px) {
+  html, body {
+    width: 100%;
+    overflow-x: hidden;
+  }
+
+  .container-main{
+    position: absolute;
+    width: 100%;
+  }
+
+  .layout{
+    width: 90%;
+    transform: translate(-50%, -50%);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+  }
 }

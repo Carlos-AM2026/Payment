@@ -6,7 +6,7 @@ function App() {
   return (
       <div className='container-main'>
         <div className="layout">
-          <PaymentForms />
+          <PaymentForms/>
       </div>
       </div>
   );
